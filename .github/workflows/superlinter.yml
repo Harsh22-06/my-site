@@ -1,21 +1,19 @@
-name: My Workflow
+name: Example Workflow
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with submodules
         uses: actions/checkout@v4
-
+        with:
+          submodules: recursive
       - name: 24f2002301@ds.study.iitm.ac.in
         run: echo "Hello, world!"
+
